@@ -5,7 +5,9 @@
 <a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
-This is an adaption Sonos module of [Vaggan's](https://github.com/Vaggan) [MagicMirror-SonosModule](https://github.com/Vaggan/MagicMirror-SonosModule). It was modified to fit the new module system and got some enhancements in visualisation an configuration.
+This is an adaption Sonos module of [Vaggan's](https://github.com/Vaggan) [MagicMirror-SonosModule](https://github.com/Vaggan/MagicMirror-SonosModule). It was modified to fit the new module system and got some enhancements in visualisation an configuration. Also the module hides itself when not playing.
+
+Note from Snille: I'm new to the MagicMirror world, this is my first attempt to modify a module. There are probably lot's of thing that could have been done better. :)
 
 When starting the Mirror:
 
@@ -23,7 +25,7 @@ Module on the Right side of the Mirror:
 
 ![Sonos Module Right](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Right.png)
 
-This is my own mirrors view (Top Center) using some addition in the custom.css [see below](#Custom)
+This is my own mirrors view (Top Center) using some addition in the custom.css [see below](#Custom CSS)
 
 ![Sonos Module Custom CSS](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Custom-CSS.png)
 

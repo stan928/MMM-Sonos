@@ -26,8 +26,10 @@ To run the module properly, you need to add the following data to your config.js
 
 ```
 {
-	module: 'sonos',
-	position: 'top_right', // you may choose any location
+	module: 'MMM-Sonos',
+	header: "Playing on SONOS",
+	position: "top_center", // Any of the zones on the mirror.
+	classes: "default everyone",
 	config: {}
 }
 ```
@@ -39,6 +41,17 @@ You also can set some options to hide different parts of the module.
 |`showStoppedRoom`|Trigger the visualization of stopped rooms.<br><br>**Default value:** `true`|
 |`showAlbumArt`|Trigger the visualization of the album art.<br><br>**Default value:** `true`|
 |`showRoomName`|Trigger the visualization of the room name.<br><br>**Default value:** `true`|
+|`preRoomText`|Text to be displayed before the zone name.<br><br>**Default value:** `Zone: `|
+|`preArtistText`|Text to be displayed before the artist name.<br><br>**Default value:** `Artist: `|
+|`preTrackText`|Text to be displayed before the track name.<br><br>**Default value:** `Track: `|
+|`preTypeText`|Text to be displayed before the source name.<br><br>**Default value:** `Source: `|
+|`animationSpeed`|Lenght of the fade animation.<br><br>**Default value:** `1000`|
+|`updateInterval`|Update interval.<br><br>**Default value:** `0.5`|
+|`apiBase`|http link to the SONOS API.<br><br>**Default value:** `http://localhost'`|
+|`apiPort`|SONOS API port.<br><br>**Default value:** `5005`|
+|`apiEndpoint`|Link to the "zones" information on the SONOS API.<br><br>**Default value:** `zones`|
+|`exclude`|Zones names to exclude ["Secret-Room","Greenhouse"].<br><br>**Default value:** `[]`|
+
 
 ### Known Issues
 

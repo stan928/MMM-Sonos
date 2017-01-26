@@ -2,12 +2,17 @@
  * Module: MagicMirror-Sonos-Module
  *
  * By Christopher Fenner https://github.com/CFenner
+ * Modified by Snille https://github.com/Snille
  * MIT Licensed.
  */
  Module.register('MMM-Sonos', {
 	defaults: {
 		showStoppedRoom: true,
 		showAlbumArt: true,
+		preRoomText: 'Zone: ',
+		preArtistText: 'Artist: ',
+		preTrackText: 'Track: ',
+		preTypeText: 'Source: ',
 		showRoomName: true,
 		animationSpeed: 1000,
 		updateInterval: 0.5, // every 0.5 minutes
@@ -50,52 +55,66 @@
 				var artist = item.coordinator.state.currentTrack.artist;
 				var track = item.coordinator.state.currentTrack.title;
 				var cover = item.coordinator.state.currentTrack.absoluteAlbumArtUri;
-				var streamInfo = item.coordinator.state.currentTrack.streamInfo;
+//				var streamInfo = item.coordinator.state.currentTrack.streamInfo;
 				var type = item.coordinator.state.currentTrack.type;
-				text += this.renderRoom(state, artist, track, cover, room);
+				var preroom = this.config.preRoomText;
+				var preartist = this.config.preArtistText;
+				var pretrack = this.config.preTrackText;
+				var pretype = this.config.preTypeText;
+				var prestream = this.config.preStreamText;
+				text += this.renderRoom(state, pretype, type, preroom, room, preartist, artist, pretrack, track, cover);
 			}
 		}.bind(this));
 		this.loaded = true;
 		// only update dom if content changed
 		if(this.dom !== text){
+			this.show();
 			this.dom = text;
 			this.updateDom(this.config.animationSpeed);
 		}
+		// Hide module if not playing.
+		if(text == ''){
+			this.hide(this.config.animationSpeed);
+		}
 	},
-	renderRoom: function(state, artist, track, cover, roomName) {
+	renderRoom: function(state, pretype, type, preroom, roomName, preartist, artist, pretrack, track, cover) {
 		artist = artist?artist:"";
 		track = track?track:"";
 		cover = cover?cover:"";
 		var room = '';
+		// show room name if 'showRoomName' is set and PLAYING or 'showStoppedRoom' is set
+		if(this.config.showRoomName && (state === 'PLAYING' || this.config.showStoppedRoom)) {
+			room += this.html.room.format(preroom, roomName);
+		}	
 		// if Sonos Playbar is in TV mode, no title is provided and therefore the room should not be displayed
 		var isEmpty = (artist && artist.trim().length) == 0
 			&& (track && track.trim().length) == 0
 			&& (cover && cover.trim().length) == 0;
 		// show song if PLAYING
 		if(state === 'PLAYING' && !isEmpty) {
+			room += this.html.type.format(pretype, type.charAt(0).toUpperCase() + type.slice(1));
 			room += this.html.song.format(
-				this.html.name.format(artist, track)+
+				this.html.name.format(preartist, artist, pretrack, track)+
 				// show album art if 'showAlbumArt' is set
 				(this.config.showAlbumArt
 					?this.html.art.format(cover)
 					:''
 				)
-				//+"<span>"+streamInfo+"</span>"
 			);
 		}
-		// show room name if 'showRoomName' is set and PLAYING or 'showStoppedRoom' is set
-		if(this.config.showRoomName && (state === 'PLAYING' || this.config.showStoppedRoom)) {
-			room += this.html.room.format(roomName);
-		}
-		return  this.html.roomWrapper.format(room);
+		return this.html.roomWrapper.format(room);
 	},
 	html: {
 		loading: '<div class="dimmed light small">Loading music ...</div>',
-		roomWrapper: '<li>{0}</li>',
-		room: '<div class="room xsmall">{0}</div>',
-		song: '<div>{0}</div>',
-		name: '<div class="name normal medium"><div>{0}</div><div>{1}</div></div>',
-		art: '<div class="art"><img src="{0}"/></div>'
+		roomWrapper: '{0}',
+		room: '<div class="room xsmall">{0}{1}</div>',
+		song: '<div class="song">{0}</div>',
+		type: '<div class="type normal small">{0}{1}</div>',
+		name: '<div class="name normal small"><div>{0}{1}</div><div>{2}{3}</div></div>',
+		art: '<div class="art"><img src="{0}"/></div>',
+	},
+	capitalize: function() {
+		return this.charAt(0).toUpperCase() + this.slice(1);
 	},
 	getScripts: function() {
 		return [
@@ -117,7 +136,7 @@
 		}
 		return $('<div class="sonos">'+content+'</div>')[0];
 	},
-  socketNotificationReceived: function(notification, payload) {
+	socketNotificationReceived: function(notification, payload) {
       if (notification === 'SONOS_DATA') {
           Log.info('received SONOS_DATA');
 					this.render(payload);

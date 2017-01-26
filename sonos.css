@@ -9,17 +9,20 @@
   vertical-align: middle;
 }
 .sonos ul .name {
-  padding: 0 .25em;
+  padding: 0px .25em;
 }
 .sonos ul .art img {
   height: 100px;
 }
+.sonos ul .type,
 .sonos ul .room {
   font-size: 50%;
   padding: .25em .5em;
 }
+.sonos ul .song {
+	padding: 0px 0px;
+	position: relative;
+}
 .sonos ul.flip {
   direction: rtl;
 }
-
-/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */

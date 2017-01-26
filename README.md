@@ -7,7 +7,26 @@
 
 This is an adaption Sonos module of [Vaggan's](https://github.com/Vaggan) [MagicMirror-SonosModule](https://github.com/Vaggan/MagicMirror-SonosModule). It was modified to fit the new module system and got some enhancements in visualisation an configuration.
 
-![Sonos Module](https://github.com/CFenner/MagicMirror-Sonos-Module/blob/master/.github/preview.png)
+When starting the Mirror:
+
+![Sonos Module Loading](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Loading.png)
+
+Module on the Left side of the Mirror:
+
+![Sonos Module Left](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Left.png)
+
+Module in the Center of the Mirror:
+
+![Sonos Module Center](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Center.png)
+
+Module on the Right side of the Mirror:
+
+![Sonos Module Right](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Right.png)
+
+This is my own mirrors view (Top Center) using some addition in the custom.css (see below):
+
+![Sonos Module Custom CSS](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Custom-CSS.png)
+
 
 ## Usage
 
@@ -36,6 +55,7 @@ To run the module properly, you need to add the following data to your config.js
 
 You also can set some options to hide different parts of the module.
 
+
 | Option | Description |
 |---|---| 
 |`showStoppedRoom`|Trigger the visualization of stopped rooms.<br><br>**Default value:** `true`|
@@ -52,6 +72,41 @@ You also can set some options to hide different parts of the module.
 |`apiEndpoint`|Link to the "zones" information on the SONOS API.<br><br>**Default value:** `zones`|
 |`exclude`|Zones names to exclude ["Secret-Room","Greenhouse"].<br><br>**Default value:** `[]`|
 
+Here is my CSS settings for the module that I have added to my costum.css to give it the exta special look. :)
+
+```
+/* Sonos --------------------------------------------*/
+.sonos ul .type {
+    font-size: 12px;
+	padding: 0px 0px;
+	line-height: 12px;
+	width: 260px;
+}
+.sonos ul .room {
+    font-size: 16px;
+	padding: 0px 0px;
+	line-height: 16px;
+	width: 260px;
+}
+.sonos ul .song {
+	padding: 0px 0px;
+	position: relative;
+}
+.sonos ul .art img {
+    height: 60px;
+    width: 60px;
+	border-radius: 50%;
+	margin: 0px 0px;
+	border: 2px solid #FFF;
+}
+.sonos ul .name {
+    width: 200px;
+    font-size: 16px;
+	padding: 0px 4px;
+	line-height: 16px;
+}
+/*****************************************************/
+```
 
 ### Known Issues
 

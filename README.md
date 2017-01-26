@@ -61,15 +61,15 @@ To run the module properly, you need to add the following data to your config.js
 {
 	module: 'MMM-Sonos',
 	header: "Playing on SONOS",
-	position: "top_center", // Any of the zones on the mirror.
+	position: "top_center", // This can be any of the regions, best results in center regions
 	classes: "default everyone",
 	config: {
-		// Configuration options below goes in here...
+		// See 'Configuration options' for more information.
 	}
 }
 ```
 
-Here are the options to configure the module.
+Here are the configuration options to configure the module.
 
 | Option | Description |
 |---|---| 

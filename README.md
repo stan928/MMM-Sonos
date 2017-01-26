@@ -5,9 +5,9 @@
 <a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
-This is an adaption Sonos module of [Vaggan's](https://github.com/Vaggan) [MagicMirror-SonosModule](https://github.com/Vaggan/MagicMirror-SonosModule). It was modified to fit the new module system and got some enhancements in visualisation an configuration. Also the module hides itself when not playing.
+This is an adaption and modification of of [Vaggan's](https://github.com/Vaggan) [MagicMirror-SonosModule](https://github.com/Vaggan/MagicMirror-SonosModule) and [CFenner's](https://github.com/CFenner) [MagicMirror-SonosModule](https://github.com/CFenner/MagicMirror-Sonos-Module). It was modified to get some enhancements in visualisation an configuration. Also the module hides itself when not playing now.
 
-Note from Snille: I'm new to the MagicMirror world, this is my first attempt to modify a module. There are probably lot's of thing that could have been done better. :)
+Note from Snille: I'm new to the MagicMirror world and Node.js, this is my first attempt to modify a module. There are probably lot's of things that could have been done better. :)
 
 When starting the Mirror:
 
@@ -64,13 +64,12 @@ To run the module properly, you need to add the following data to your config.js
 	position: "top_center", // Any of the zones on the mirror.
 	classes: "default everyone",
 	config: {
-	
+		// Configuration options below goes in here...
 	}
 }
 ```
 
-You also can set some options to hide different parts of the module.
-
+Here are the options to configure the module.
 
 | Option | Description |
 |---|---| 

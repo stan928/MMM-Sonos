@@ -1,4 +1,4 @@
-# MagicMirror-Sonos-Module
+# MMM-Sonos
 
 <p>
 <a href="https://github.com/jishi/node-sonos-http-api"><img src="https://img.shields.io/badge/Sonos-API-orange.svg" alt="API"></a>
@@ -23,7 +23,7 @@ Module on the Right side of the Mirror:
 
 ![Sonos Module Right](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Right.png)
 
-This is my own mirrors view (Top Center) using some addition in the custom.css (see below):
+This is my own mirrors view (Top Center) using some addition in the custom.css [see below](#Custom)
 
 ![Sonos Module Custom CSS](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Custom-CSS.png)
 
@@ -37,7 +37,19 @@ _Prerequisites_
 
 ### Installation
 
-To use this module, just create a new folder in the __modules__ folder of your MagicMirror, name it 'sonos' and copy the content of the repository into this folder. You also need to add some [config entries](#configuration) to your config.js file. After that the content will be added to your mirror.
+In your terminal, go to your MagicMirror's Module folder:
+
+```
+cd ~/MagicMirror/modules
+```
+
+Clone this repository:
+
+```
+git clone https://github.com/Snille/MMM-Sonos.git
+```
+
+Add some [config entries](#configuration) to your config.js file. After that the content will be added to your mirror.
 
 ### Configuration
 
@@ -49,7 +61,9 @@ To run the module properly, you need to add the following data to your config.js
 	header: "Playing on SONOS",
 	position: "top_center", // Any of the zones on the mirror.
 	classes: "default everyone",
-	config: {}
+	config: {
+	
+	}
 }
 ```
 
@@ -72,7 +86,9 @@ You also can set some options to hide different parts of the module.
 |`apiEndpoint`|Link to the "zones" information on the SONOS API.<br><br>**Default value:** `zones`|
 |`exclude`|Zones names to exclude ["Secret-Room","Greenhouse"].<br><br>**Default value:** `[]`|
 
-Here is my CSS settings for the module that I have added to my costum.css to give it the exta special look. :)
+### Custom CSS
+
+Here is my CSS settings for the module that I have added to my custom.css to give it the exta special look. :)
 
 ```
 /* Sonos --------------------------------------------*/

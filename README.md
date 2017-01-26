@@ -25,7 +25,7 @@ Module on the Right side of the Mirror:
 
 ![Sonos Module Right](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Right.png)
 
-This is my own mirrors view (Top Center) using some addition in the custom.css [see below](#Custom-CSS)
+This is my own mirrors view (Top Center) using some addition in the custom.css [see below](#custom-css)
 
 ![Sonos Module Custom CSS](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Custom-CSS.png)
 

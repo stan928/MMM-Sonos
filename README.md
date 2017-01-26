@@ -25,7 +25,7 @@ Module on the Right side of the Mirror:
 
 ![Sonos Module Right](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Right.png)
 
-This is my own mirrors view (Top Center) using some addition in the custom.css [see below](#CSS)
+This is my own mirrors view (Top Center) using some addition in the custom.css [see below](#Custom-CSS)
 
 ![Sonos Module Custom CSS](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Custom-CSS.png)
 
@@ -88,7 +88,7 @@ You also can set some options to hide different parts of the module.
 |`apiEndpoint`|Link to the "zones" information on the SONOS API.<br><br>**Default value:** `zones`|
 |`exclude`|Zones names to exclude ["Secret-Room","Greenhouse"].<br><br>**Default value:** `[]`|
 
-### CSS
+### Custom-CSS
 
 Here is my CSS settings for the module that I have added to my custom.css to give it the exta special look. :)
 

@@ -21,6 +21,10 @@ Module in the Center of the Mirror:
 
 ![Sonos Module Center](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Center.png)
 
+Module in the Center of the Mirror playing in 3 different zones:
+
+![Sonos Module Center](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Multizone.png)
+
 Module on the Right side of the Mirror:
 
 ![Sonos Module Right](https://github.com/Snille/MMM-Sonos/blob/master/.github/Sonos-Right.png)

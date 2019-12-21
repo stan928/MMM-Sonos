@@ -1,7 +1,8 @@
-/* Magic Mirror
- * Module: MagicMirror-Sonos-Module
+/* Magic Mirror 2
+ * Module: MMM-Sonos
  *
  * By Christopher Fenner https://github.com/CFenner
+ * Modified by Snille https://github.com/Snille
  * MIT Licensed.
  */
 var NodeHelper = require('node_helper');
@@ -14,7 +15,7 @@ module.exports = NodeHelper.create({
   //Subclass socketNotificationReceived received.
   socketNotificationReceived: function(notification, url) {
     if (notification === 'SONOS_UPDATE') {
-      console.log(notification);
+      //console.log(notification);
       var self = this;
       request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {

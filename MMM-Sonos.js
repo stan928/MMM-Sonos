@@ -1,5 +1,5 @@
-/* Magic Mirror
- * Module: MagicMirror-Sonos-Module
+/* Magic Mirror 2
+ * Module: MMM-Sonos
  *
  * By Christopher Fenner https://github.com/CFenner
  * Modified by Snille https://github.com/Snille
@@ -30,9 +30,7 @@
 			this.config.updateInterval * 60 * 1000);
 	},
 	update: function(){
-		this.sendSocketNotification(
-			'SONOS_UPDATE',
-			this.config.apiBase + ":" + this.config.apiPort + "/" + this.config.apiEndpoint);
+		this.sendSocketNotification('SONOS_UPDATE',this.config.apiBase + ":" + this.config.apiPort + "/" + this.config.apiEndpoint);
 	},
 	render: function(data){
 		var text = '';

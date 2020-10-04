@@ -13,6 +13,7 @@
 		preArtistText: 'Artist: ',
 		preTrackText: 'Track: ',
 		preTypeText: 'Source: ',
+		preVolumeText: 'Volume: ',
 		showRoomName: true,
 		animationSpeed: 1000,
 		updateInterval: 0.5, // every 0.5 minutes
@@ -52,6 +53,7 @@
 				var state = item.coordinator.state.playbackState;
 				var artist = item.coordinator.state.currentTrack.artist;
 				var track = item.coordinator.state.currentTrack.title;
+				var volume = item.coordinator.groupState.volume.toString();
 				var cover = item.coordinator.state.currentTrack.absoluteAlbumArtUri;
 //				var streamInfo = item.coordinator.state.currentTrack.streamInfo;
 				var type = item.coordinator.state.currentTrack.type;
@@ -60,7 +62,8 @@
 				var pretrack = this.config.preTrackText;
 				var pretype = this.config.preTypeText;
 				var prestream = this.config.preStreamText;
-				text += this.renderRoom(state, pretype, type, preroom, room, preartist, artist, pretrack, track, cover);
+				var prevolume = this.config.preVolumeText;
+				text += this.renderRoom(state, pretype, type, preroom, room, preartist, artist, pretrack, track, cover, prevolume, volume);
 			}
 		}.bind(this));
 		this.loaded = true;
@@ -75,10 +78,11 @@
 			this.hide(this.config.animationSpeed);
 		}
 	},
-	renderRoom: function(state, pretype, type, preroom, roomName, preartist, artist, pretrack, track, cover) {
+	renderRoom: function(state, pretype, type, preroom, roomName, preartist, artist, pretrack, track, cover, prevolume, volume) {
 		artist = artist?artist:"";
 		track = track?track:"";
 		cover = cover?cover:"";
+		volume = volume?volume:"";
 		var room = '';
 		// show room name if 'showRoomName' is set and PLAYING or 'showStoppedRoom' is set
 		if(this.config.showRoomName && (state === 'PLAYING' || this.config.showStoppedRoom)) {
@@ -91,7 +95,8 @@
 		// show song if PLAYING
 		if(state === 'PLAYING' && !isEmpty) {
 			room += this.html.type.format(pretype, type.charAt(0).toUpperCase() + type.slice(1));
-			room += this.html.song.format(
+			room += this.html.type.format(prevolume, volume);
+			room += this.html.name.format(
 				this.html.name.format(preartist, artist, pretrack, track)+
 				// show album art if 'showAlbumArt' is set
 				(this.config.showAlbumArt

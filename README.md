@@ -136,4 +136,6 @@ The module may not be able to access the data of the sonos API due to a Cross-Or
 ```
   res.setHeader("Access-Control-Allow-Origin", "http://localhost");
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
 ```
+## known nothings
